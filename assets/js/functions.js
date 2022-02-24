@@ -34,6 +34,7 @@ function verifForm() {
     var input_reponse = document.querySelector('.input_reponse');
     var reponse_joueur = document.getElementById('reponse_joueur').value;
     var reponse = document.getElementById('reponse').value;
+
     if (reponse == reponse_joueur) {
         input_reponse.style.border = "green 1px solid";
         input_reponse.style.background = "#9FF781";

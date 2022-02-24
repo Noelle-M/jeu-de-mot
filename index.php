@@ -11,13 +11,13 @@ include "includes/questions.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/cosmo/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- timer -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/timecircles/1.5.3/TimeCircles.min.js" integrity="sha512-FofOhk0jW4BYQ6CFM9iJutqL2qLk6hjZ9YrS2/OnkqkD5V4HFnhTNIFSAhzP3x//AD5OzVMO8dayImv06fq0jA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="assets/js/functions.js"></script>
+    <script src="https://kit.fontawesome.com/be37ea6e46.js" crossorigin="anonymous"></script>
 
     <title>Jeu de mots</title>
 </head>
@@ -231,9 +231,9 @@ include "includes/questions.php";
                     if ($key < count($_SESSION['questions'])+1) {
                         if (isset($value[2])) {
                             if ($value[2] == "false") {
-                                echo '<h2 class="text-red">';
+                                echo '<h2 class="text-red"><i class="fas fa-times text-red"></i>';
                             } else {
-                                echo '<h2 class="text-green">';
+                                echo '<h2 class="text-green"><i class="fas fa-check text-green"></i>';
                             }
                             echo $value[0];
                             echo '</h2><p class="ml-3">';

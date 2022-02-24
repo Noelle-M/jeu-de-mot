@@ -18,3 +18,10 @@ p,
 .capitalize {
     text-transform: capitalize;
 }
+
+i {
+    font-size: 54px;
+    margin-right: 15px;
+    height: 56px;
+    width: 56px;
+}
