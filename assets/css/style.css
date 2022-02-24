@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+.text-green {
+    color: green;
+    text-transform: capitalize;
+}
+
+.text-red {
+    color: red;
+    text-transform: capitalize;
+}
+
+p,
+.text-green,
+.text-red {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}

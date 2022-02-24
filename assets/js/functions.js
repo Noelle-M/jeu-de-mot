@@ -12,7 +12,7 @@ function CompteaRebour() {
 
     if ((s == 0)) {
         clearInterval(timer);
-        url = 'index.php?timeOut=true';
+        url = 'index.php?action=timeOut';
         Redirection(url)
     }
 }
@@ -24,7 +24,7 @@ function Redirection(url) {
 /**Lancer la partie */
 /**Ecoute de l'événement au clic sur le bouton "Partez" */
 function start() {
-    url1 = 'index.php?start=true';
+    url1 = 'index.php?action=start';
     Redirection(url1);
     window.location = url1;
 }

@@ -10,4 +10,12 @@ $questions = array(
     7 => ["question 8" , "Réponse 8"],
     8 => ["question 9" , "Réponse 9"],
     9 => ["question 10" , "Réponse 10"],
+    10 => ["question 11" , "Réponse 11"],
+    11 => ["question 12" , "Réponse 12"],
+    12 => ["question 13" , "Réponse 13"],
+    13 => ["question 14" , "Réponse 14"],
+    14 => ["question 15" , "Réponse 15"],
+    15 => ["question 16" , "Réponse 16"],
+    16 => ["question 17" , "Réponse 17"],
+    17 => ["question 18" , "Réponse 18"],
 );

@@ -1,21 +1,26 @@
 <?php
 session_start();
-var_dump($_SESSION);
-$reponse = $_POST['reponse'];
-$reponse_joueur = $_POST['reponse_joueur'];
-$id_question = $_POST['id_question'];
-$question = $_POST['question'];
 
-
-if($reponse === $reponse_joueur){
-    $_SESSION['points'] = $_SESSION['points'] + 10;
+if(!empty($_POST)){
+    $reponse = $_POST['reponse'];
+    $reponse_joueur = $_POST['reponse_joueur'];
+    $id_question = $_POST['id_question'];
+    $question = $_POST['question'];
+    if($reponse === $reponse_joueur){
+        $_SESSION['points'] = $_SESSION['points'] + 10;
+        $_SESSION['questions'][$id_question][2] = "true";
+    }else{
+        $_SESSION['questions'][$id_question][2] = "false";
+        $_SESSION['points'] = $_SESSION['points'] + 0;
+    }
 }
 
-if(isset($_SESSION['questions'])){
-    array_push($_SESSION['questions'], $id_question);
+if(isset($_GET['action']) && $_GET['action'] =="passer"){
+    $id_question = $_GET['idQ'];
+    $_SESSION['questions'][$id_question][2] = "false";
+    $reponse = '';
 }
-else{
-    $_SESSION['questions'] = [];
-}
+//supression de la question pour un affichage unique
+unset($_SESSION['new_tab_questions'][$id_question]);
 
-header('Location: ../index.php?start=true');
+header('Location: ../index.php?action=start');
