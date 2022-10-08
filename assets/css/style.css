@@ -25,3 +25,10 @@ i {
     height: 56px;
     width: 56px;
 }
+
+main,
+.card {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}

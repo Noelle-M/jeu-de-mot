@@ -26,7 +26,7 @@ include "includes/questions.php";
     <header class="bg-dark w-100 p-4 text-white">
         <h1 class="text-center mt-5">Jeu de mots</h1>
     </header>
-    <main class="w-50 ml-auto mr-auto mb-5">
+    <main class="ml-auto mr-auto mb-5">
         <?php
         if (isset($_GET['action'])) {
 
@@ -88,7 +88,7 @@ include "includes/questions.php";
                     <hr>
 
                     <div class="shadow p-4">
-                        <table class="table w-50 text-center">
+                        <table class="table text-center">
                             <thead>
                                 <tr>
                                     <th>Points</th>
@@ -129,29 +129,39 @@ include "includes/questions.php";
                                 </tr>
                             </tbody>
                         </table>
-
-                        <p>Question : <span class="capitalize"><?= $la_question ?></span></p>
+                        <?php 
+                        if($_SESSION['nombre_de_tours'] <18){
+                            ?>
+                            <p>Question : <?= $la_question ?></p>
                         
-                        <form method="post" action="includes/traitement.php" class="row mt-5 mb-5" onkeyup="return verifForm()" onsubmit="return verifForm()">
-                            <div class="col-8">
-                                <input id="reponse_joueur" type="text" name="reponse_joueur" class="w-100 shadow p-3 h-100 input_reponse" placeholder="<?= substr($la_reponse, 0, 1) ?>" autofocus />
-                                <input id="reponse" type="hidden" name="reponse" value="<?= $la_reponse ?>" style="" />
-                                <input type="hidden" name="question" value="<?= $la_question ?>" />
-                                <input type="hidden" name="id_question" value="<?= $id_question ?>" />
-                                <button type="submit" name="submit" hidden></button>
-                            </div>
-                            <div class="col-2 p-0 m-0">
-                                <a href="includes/traitement.php?action=passer&idQ=<?= $id_question ?>">
-                                    <button type="button" name="resetAll" class="btn btn-primary w-100 h-100">Passer</button>
-                                </a>
-                            </div>
-                            <div class="col-2 p-0 m-0">
-                                <a href="index.php?action=timeOut">
-                                    <button type="button" class="mb-3 text-center btn btn-danger w-100 h-100">Stop !</button>
-                                </a>
-                            </div>
-                        </form>
-                        <small>Pour valider votre réponse appuyer sur la touche entrée de votre clavier</small>
+                            <form method="post" action="includes/traitement.php" class="row mt-5 mb-5" onkeyup="return verifForm()" onsubmit="return verifForm()">
+                                <div class="col-8">
+                                    <input id="reponse_joueur" type="text" name="reponse_joueur" class="w-100 shadow p-3 h-100 input_reponse" autofocus />
+                                    <input id="reponse" type="hidden" name="reponse" value="<?= $la_reponse ?>" style="" />
+                                    <input type="hidden" name="question" value="<?= $la_question ?>" />
+                                    <input type="hidden" name="id_question" value="<?= $id_question ?>" />
+                                    <button type="submit" name="submit" hidden></button>
+                                </div>
+                                <div class="col-2 p-0 m-0">
+                                    <a href="includes/traitement.php?action=passer&idQ=<?= $id_question ?>">
+                                        <button type="button" name="resetAll" class="btn btn-primary w-100 h-100">Passer</button>
+                                    </a>
+                                </div>
+                                <div class="col-2 p-0 m-0">
+                                    <a href="index.php?action=timeOut">
+                                        <button type="button" class="mb-3 text-center btn btn-danger w-100 h-100">Stop !</button>
+                                    </a>
+                                </div>
+                            </form>
+                            <small>Pour valider votre réponse appuyer sur la touche entrée de votre clavier</small>
+                            <?php
+                        }else{
+                            ?> <p>Bravo !! Vous êtes arrivé au bout de toutes les questions :)</p> 
+                            <a href="includes/unset-session.php">
+                            <div class="mb-3 text-center btn btn-danger w-100">Rejouer</div>
+                        </a><?php
+                        }
+                        ?>
                     </div>
                 <?php
                     break;
